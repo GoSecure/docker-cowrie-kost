@@ -25,4 +25,4 @@ then
 fi
 
 echo "Starting cowrie..."
-twistd -n -y cowrie.tac -l log/cowrie.log --pidfile cowrie.pid
+twistd -n -l log/cowrie.log --pidfile cowrie.pid cowrie

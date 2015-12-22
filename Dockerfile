@@ -1,8 +1,10 @@
 FROM gliderlabs/alpine
-MAINTAINER Vlatko Kosturjak kost@kost.im
+MAINTAINER Olivier Bilodeau obilodeau@gosecure.ca
 
-RUN apk --update add git python py-twisted py-zope-interface py-pip && rm -f /var/cache/apk/*
-RUN pip install pyasn1
+RUN apk --update add git python py-twisted py-zope-interface py-pip \
+	gcc python-dev libc-dev libffi-dev openssl-dev \
+	&& rm -f /var/cache/apk/*
+RUN pip install pyasn1 pyOpenSSL
 RUN adduser -D -s /bin/sh cowrie cowrie
 USER cowrie
 RUN git clone https://github.com/micheloosterhof/cowrie.git /home/cowrie/cowrie
