@@ -7,8 +7,13 @@ Image is based on the [gliderlabs/alpine](https://registry.hub.docker.com/u/glid
 ## Docker usage
 
 ```
-docker run -p 2222 -v $(pwd)/dl:/home/cowrie/cowrie/dl -v $(pwd)/log:/home/cowrie/cowrie/log gosecure/cowrie
+docker run -p 2222 -p 2223 -v $(pwd)/dl:/home/cowrie/cowrie/dl -v $(pwd)/log:/home/cowrie/cowrie/log gosecure/cowrie
 ```
+
+Attack surface
+
+* If you don't want SSH exposed, remove `-p 2222`
+* If you don't want Telnet exposed, remove `-p 2223`
 
 Volumes are mapped on the host for a convenient access to logs and evidence.
 
