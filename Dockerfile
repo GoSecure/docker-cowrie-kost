@@ -4,7 +4,7 @@ MAINTAINER Olivier Bilodeau obilodeau@gosecure.ca
 RUN apk --update add git python py-twisted py-zope-interface py-pip \
 	gcc python-dev libc-dev libffi-dev openssl-dev \
 	&& rm -f /var/cache/apk/*
-RUN pip install pyasn1 pyOpenSSL
+RUN pip install pyasn1 pyOpenSSL service_identity
 RUN adduser -D -s /bin/sh cowrie cowrie
 USER cowrie
 RUN git clone https://github.com/micheloosterhof/cowrie.git /home/cowrie/cowrie
