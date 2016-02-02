@@ -8,7 +8,7 @@ RUN pip install pyasn1 pyOpenSSL service_identity
 RUN adduser -D -s /bin/sh cowrie cowrie
 USER cowrie
 #RUN git clone https://github.com/micheloosterhof/cowrie.git /home/cowrie/cowrie
-RUN git clone -b telnet-wip-deploy-3 https://github.com/GoSecure/cowrie.git /home/cowrie/cowrie
+RUN git clone -b telnet-wip-deploy-4 https://github.com/GoSecure/cowrie.git /home/cowrie/cowrie
 COPY cowrie.cfg /home/cowrie/cowrie/
 COPY userdb.txt /home/cowrie/cowrie/data/
 COPY start-docker.sh /home/cowrie/cowrie/
