@@ -17,9 +17,10 @@ Attack surface
 
 Volumes are mapped on the host for a convenient access to logs and evidence.
 
-* dl/
-* log/
-* log/tty/
+* `dl/` - files transferred from the attacker to the honeypot are stored here
+* `log/cowrie.json` - transaction output in JSON format
+* `log/cowrie.log` - log/debug output
+* `log/tty/*.log` - session logs
 
 ## Examples
 
@@ -31,10 +32,23 @@ docker run --restart=on-failure:10 -p 2222:2222 gosecure/cowrie
 docker run --restart=always -p 22:2222 gosecure/cowrie
 ```
 
-## Configuration changes
+## Customize
 
-If any changes are made to `cowrie.cfg` or `userdb.txt` the docker image needs to be rebuilt with:
+### Modify fake host
+
+* `cowrie.cfg` - Cowrie's configuration file.
+* `data/fs.pickle` - fake filesystem
+* `data/userdb.txt` - credentials allowed or disallowed to access the honeypot
+* `honeyfs/` - file contents for the fake filesystem - feel free to copy a real system here or use `utils/fsctl.py`
+* `txtcmds/` - file contents for the fake commands
+
+### Rebuild the image
 
 ```
 docker build -t gosecure/cowrie .
 ```
+
+## Upstream tools
+
+* `utils/createfs.py` - used to create the fake filesystem
+* `utils/playlog.py` - utility to replay session logs
