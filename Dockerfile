@@ -10,9 +10,9 @@ USER cowrie
 #RUN git clone https://github.com/micheloosterhof/cowrie.git /home/cowrie/cowrie
 RUN git clone -b telnet-wip https://github.com/GoSecure/cowrie.git /home/cowrie/cowrie
 COPY cowrie.cfg /home/cowrie/cowrie/
-COPY data/ /home/cowrie/cowrie/
-COPY honeyfs/ /home/cowrie/cowrie/
-COPY txtcmds/ /home/cowrie/cowrie/
+COPY data/ /home/cowrie/cowrie/data
+COPY honeyfs/ /home/cowrie/cowrie/honeyfs
+COPY txtcmds/ /home/cowrie/cowrie/txtcmds
 COPY start-docker.sh /home/cowrie/cowrie/
 USER root
 RUN chmod 755 /home/cowrie/cowrie/start-docker.sh
